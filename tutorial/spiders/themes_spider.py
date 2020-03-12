@@ -23,5 +23,21 @@ class ThemesSpider(scrapy.Spider):
             'demo_link': response.css('a.demo::attr(href)').get(),
             'category': response.css('span.arya-post-cat::text').get(),
             'tags': response.css('div.arya-post-tags span a::text').getall(),
-            'og:type': response.selector.xpath("//meta[@property='og:type']/@content").extract()
+            'og:type': response.selector.xpath("//meta[@property='og:type']/@content")[0].extract(),
+            'og:image': response.selector.xpath("//meta[@property='og:image']/@content")[0].extract(),
+            'twitter:image': response.selector.xpath("//meta[@name='twitter:image']/@content")[0].extract(),
+            'og:url': response.selector.xpath("//meta[@property='og:url']/@content")[0].extract(),
+            'og:title': response.selector.xpath("//meta[@property='og:title']/@content")[0].extract(),
+            'og:locale': response.selector.xpath("//meta[@property='og:locale']/@content")[0].extract(),
+            'og:type': response.selector.xpath("//meta[@property='og:type']/@content")[0].extract(),
+            'og:description': response.selector.xpath("//meta[@property='og:description']/@content")[0].extract(),
+            'og:image': response.selector.xpath("//meta[@property='og:image']/@content")[0].extract(),
+            'og:image:secure_url': response.selector.xpath("//meta[@property='og:image:secure_url']/@content")[0].extract(),
+            'og:image:width': response.selector.xpath("//meta[@property='og:image:width']/@content")[0].extract(),
+            'og:image:height': response.selector.xpath("//meta[@property='og:image:height']/@content")[0].extract(),
+            'twitter:card': response.selector.xpath("//meta[@name='twitter:card']/@content")[0].extract(),
+            'twitter:url': response.selector.xpath("//meta[@name='twitter:url']/@content")[0].extract(),
+            'twitter:title': response.selector.xpath("//meta[@name='twitter:title']/@content")[0].extract(),
+            'twitter:description': response.selector.xpath("//meta[@name='twitter:description']/@content")[0].extract(),
+            'twitter:image': response.selector.xpath("//meta[@name='twitter:image']/@content")[0].extract()
         }
