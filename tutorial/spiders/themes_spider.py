@@ -35,5 +35,7 @@ class ThemesSpider(scrapy.Spider):
             'title': response.css('h1.arya-post-title::text').get(),
             'content': response.selector.xpath('/html/body/div[2]/div/div/div/article/div/div/div[1]/div/div[1]/div/div[2]/div/div/div/div[1]/div[1]/p[1]').get(),
             'download_links': response.css('div.download-style p::text').getall(),
-            'demo_link': response.css('a.demo::attr(href)').get()
+            'demo_link': response.css('a.demo::attr(href)').get(),
+            'category': response.css('span.arya-post-cat::text').get(),
+            'tags': response.css('div.arya-post-tags span a::text').getall()
         }
