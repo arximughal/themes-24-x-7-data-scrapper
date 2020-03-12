@@ -23,5 +23,5 @@ class ThemesSpider(scrapy.Spider):
             'demo_link': response.css('a.demo::attr(href)').get(),
             'category': response.css('span.arya-post-cat::text').get(),
             'tags': response.css('div.arya-post-tags span a::text').getall(),
-            'og:type': response.selector.xpath("//meta[@property='og:type']/@content").get();
+            'og:type': response.selector.xpath("//meta[@property='og:type']::attr(content)").get();
         }
