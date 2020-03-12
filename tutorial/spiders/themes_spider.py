@@ -19,7 +19,7 @@ class ThemesSpider(scrapy.Spider):
             'featured_image': response.css('div#arya-post-feat-img img::attr(src)').get().replace('themes24x7', 'CestaFina'),
             'title': response.css('h1.arya-post-title::text').get().replace('themes24x7', 'CestaFina'),
             'content': response.selector.xpath('/html/body/div[2]/div/div/div/article/div/div/div[1]/div/div[1]/div/div[2]/div/div/div/div[1]/div[1]/p[1]').get().replace('themes24x7', 'CestaFina'),
-            'download_links': response.css('div.download-style p::text').getall().replace('themes24x7', 'CestaFina'),
+            'download_links': response.css('div.download-style p::text').getall(),
             'demo_link': response.css('a.demo::attr(href)').get().replace('themes24x7', 'CestaFina'),
             'category': response.css('span.arya-post-cat::text').get().replace('themes24x7', 'CestaFina'),
             'tags': response.css('div.arya-post-tags span a::text').getall(),
